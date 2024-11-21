@@ -1,4 +1,4 @@
 const CONFIG = {
-    SHEET_ID: '10IkkOpeD_VoDpqMN23QFxGyuW0_p0TZx4NpWNcMN-Ss',
-    SHEET_NAME: 'קבוצות צומחות'
+    SHEET_ID: '1ajD11OJ68xcDZzQpt8ANRHSug_um9tdvfrNFXXEwXKg',
+    SHEET_NAME: 'Sheet1'
 };
