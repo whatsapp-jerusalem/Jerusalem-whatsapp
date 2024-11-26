@@ -47,8 +47,8 @@
             color: #495057;
         }
         .whatsapp-btn {
-            background-color: #25D366;
-            color: white;
+            background-color: #91ebe1;
+            color: black;
             border: none;
             padding: 1rem;
             border-radius: 8px;
@@ -58,8 +58,8 @@
             transition: all 0.3s ease;
         }
         .whatsapp-btn:hover {
-            background-color: #1ea952;
-            color: white;
+            background-color: #7ad4ca;
+            color: black;
             transform: translateY(-2px);
         }
         .footer-text {
@@ -118,12 +118,11 @@
         </div>
 
         <div class="intro-text">
-            <p>קבוצות הוואטסאפ השכונתיות והקהילתיות של ירושלים?</p>
-            <p>הצטרפו להתייעץ, לשתף, לתת ולהיות חלק מהקהילה השכונתית שלכם .</p>
+            <p>כדאי להצטרף לקבוצת הוואטסאפ הקהילתית של השכונה. להתייעץ, לשתף, לתת ולקבל ולהיות חלק מהקהילה.</p>
         </div>
 
         <div class="footer-text text-center">
-            <p>ההפרסומים מותרים רק בימי שלישי ורק לתושבי השכונה עם עסק קטן בתוך השכונה</p>
+            <p>הפרסומים מותרים רק בימי שלישי ורק לתושבי השכונה עם עסק קטן בתוך השכונה</p>
         </div>
 
         <img src="./image.jpg" alt="תמונה" class="footer-image">
@@ -132,7 +131,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="./config.js"></script>
     <script>
-        let neighborhoods = {}; // הגדרת המשתנה בצורה גלובלית
+        let neighborhoods = {};
 
         async function loadNeighborhoods() {
             const SHEET_URL = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:json&sheet=${CONFIG.SHEET_NAME}`;
@@ -143,8 +142,8 @@
                 const data = JSON.parse(text.substr(47).slice(0, -2));
                 
                 data.table.rows.forEach(row => {
-                    const name = row.c[1].v;  // עמודה B - שם שכונה
-                    const link = row.c[2].v;  // עמודה C - קישור
+                    const name = row.c[1].v;
+                    const link = row.c[2].v;
                     neighborhoods[name] = link;
                 });
                 
@@ -160,13 +159,13 @@
             
             search.addEventListener('input', function() {
                 const value = this.value.trim().toLowerCase();
-                console.log('Input value:', value); // הצגת הערך שהוקלד
+                console.log('Input value:', value);
 
                 const matchedNeighborhoods = Object.keys(neighborhoods).filter(n => 
                     n.toLowerCase().includes(value) && value.length > 1
                 );
                 
-                console.log('Matched neighborhoods:', matchedNeighborhoods); // הצגת רשימת השכונות שנמצאו
+                console.log('Matched neighborhoods:', matchedNeighborhoods);
                 
                 searchResults.innerHTML = '';
                 if (matchedNeighborhoods.length > 0) {
@@ -187,7 +186,6 @@
             });
         }
 
-        // טעינת הנתונים בעת טעינת הדף
         window.addEventListener('load', async () => {
             await loadNeighborhoods();
             initSearch();
